@@ -1,0 +1,30 @@
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+// import Home from '@/views/Homereport'
+
+Vue.use(VueRouter)
+
+  const routes = [
+  {
+    path: '/',
+    name: 'Homereport',
+    // component: Home
+    component: () => import(/* webpackChunkName: "about" */ '@/views/Homereport')
+  },
+  {
+    path: '/airQuality',
+    name: 'airQuality',
+    component: () => import(/* webpackChunkName: "about" */ '@/views/airQuality')
+  },
+  {
+    path: '/WorkNews',
+    name: 'WorkNews',
+    component: () => import('@/views/WorkNews')
+  }
+]
+
+const router = new VueRouter({
+  routes
+})
+
+export default router
